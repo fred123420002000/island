@@ -42,6 +42,8 @@ public class BallJpanel extends JPanel implements MouseMotionListener,
 
     static boolean up = false, down = false, left = false, right = false;
 
+    static boolean gameover = false;
+
     public BallJpanel() {
         // 添加小球类
         for (int i = 0; i < hp; i++) {
@@ -95,6 +97,16 @@ public class BallJpanel extends JPanel implements MouseMotionListener,
             g.setFont(new Font("微软雅黑", Font.PLAIN, 40));
             g.drawString("成功", 300, 250);
         }
+        if (gameover) {
+            state = OVER;
+            g.setColor(Color.red);
+            g.setFont(new Font("微软雅黑", Font.PLAIN, 40));
+            g.drawString("失敗", 300, 250);
+        }
+    }
+
+    public static void gameover() {
+        gameover = !gameover;
     }
 
     public void move() {
@@ -173,6 +185,7 @@ public class BallJpanel extends JPanel implements MouseMotionListener,
                 Ball ball = list.get(i);
                 ball.reset();
             }
+            gameover = false;
         }
     }
 

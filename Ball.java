@@ -115,8 +115,8 @@ public class Ball {
     // 小球越界处理
     public void ballBorder() {
         // 小球碰到挡板                
-        if ((x - BallJpanel.dx) * (x - BallJpanel.dx) + (y - BallJpanel.dy) * (y - BallJpanel.dy) < 400) {
-            flag = !flag;
+        if ((x - BallJpanel.dx) * (x - BallJpanel.dx) + (y - BallJpanel.dy) * (y - BallJpanel.dy) < 100) {
+            BallJpanel.gameover();
         }
     }
 
